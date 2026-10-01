@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Force Grokipedia</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <img src="icons/icon48.png" alt="" width="32" height="32" />
+      <div>
+        <h1>Force Grokipedia</h1>
+        <p id="status">Redirecting Wikipedia → Grokipedia</p>
+      </div>
+    </header>
+
+    <label class="toggle">
+      <input id="enabled" type="checkbox" checked />
+      <span class="track" aria-hidden="true"></span>
+      <span class="label">Redirect Wikipedia articles</span>
+    </label>
+
+    <p class="hint">
+      Article links on wikipedia.org go to the matching page on grokipedia.com.
+      Turn this off when you need Wikipedia itself.
+    </p>
+    <script src="popup.js"></script>
+  </body>
+</html>

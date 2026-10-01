@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Force Grokipedia",
+  "version": "1.0.0",
+  "description": "Redirect Wikipedia articles to the matching Grokipedia page.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Force Grokipedia",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["declarativeNetRequestWithHostAccess", "storage"],
+  "host_permissions": [
+    "*://wikipedia.org/*",
+    "*://*.wikipedia.org/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "wikipedia_to_grokipedia",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://wikipedia.org/*",
+        "*://*.wikipedia.org/*"
+      ],
+      "js": ["redirect.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "priority": 100,
+    "action": { "type": "allow" },
+    "condition": {
+      "regexFilter": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.org/wiki/(?:Special:|Special%3A|File:|File%3A|Image:|Image%3A|Wikipedia:|Wikipedia%3A|Help:|Help%3A|User:|User%3A|Talk:|Talk%3A|Template:|Template%3A|Module:|Module%3A|MediaWiki:|MediaWiki%3A|Draft:|Draft%3A|Portal:|Portal%3A|Category:|Category%3A|Media:|TimedText:|WP:|WT:|Project:)(?:.*)$",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 100,
+    "action": { "type": "allow" },
+    "condition": {
+      "regexFilter": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.org/w/index\\.php\\?.*(?:title=(?:Special:|Special%3A|File:|File%3A|Image:|Wikipedia:|Help:|User:|Talk:|Template:|Module:|MediaWiki:|Draft:|Portal:|Category:|Media:|TimedText:|WP:|WT:|Project:)|search=)",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 50,
+    "action": {
+      "type": "redirect",
+      "redirect": { "url": "https://grokipedia.com/" }
+    },
+    "condition": {
+      "regexFilter": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.org/(?:wiki/Main_Page)?/?(?:[?#].*)?$",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 10,
+    "action": {
+      "type": "redirect",
+      "redirect": { "regexSubstitution": "https://grokipedia.com/page/\\1" }
+    },
+    "condition": {
+      "regexFilter": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.org/wiki/([^?#]+?)/*(?:[?#].*)?$",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 5,
+    "priority": 10,
+    "action": {
+      "type": "redirect",
+      "redirect": { "regexSubstitution": "https://grokipedia.com/page/\\1" }
+    },
+    "condition": {
+      "regexFilter": "^https?://(?:[a-z0-9-]+\\.)*wikipedia\\.org/w/index\\.php\\?title=([^&#]+)(?:[&#].*)?$",
+      "resourceTypes": ["main_frame"]
+    }
+  }
+]
