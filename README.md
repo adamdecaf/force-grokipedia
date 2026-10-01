@@ -61,8 +61,15 @@ A small `document_start` content script covers odd URL shapes the ruleset misses
 ## Development
 
 ```bash
-node test-redirect.js
+make test
+make zip
 ```
+
+`make zip` writes `force-grokipedia-<version>.zip` at the repo root, with extension files at the archive root (what the Chrome Web Store expects). It skips tests, `.git`, and Brave's unpacked `_metadata/`.
+
+## Privacy
+
+The extension stores only the local on/off toggle and does not send data to the developer. Full policy: [PRIVACY.md](PRIVACY.md).
 
 ## License
 
